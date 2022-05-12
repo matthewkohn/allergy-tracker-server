@@ -1,4 +1,4 @@
-# Allergy Tracker
+# Allergy Tracker Server
 This is the backend for an allergy tracker app for Flatiron School to showcase skills in Ruby and Active Record.
 
 ## Requirements
@@ -12,7 +12,7 @@ bundle install
 rake db:migrate db:seed
 rake server
 ```
-If you haven't already, follow directions for the [Frontend]('www.github.com').
+If you haven't already, follow directions for the [Frontend]('https://github.com/matthewkohn/phase-3-allergy_tracker_client').
 
 ## Licensing (MIT)
 Copyright 2022 Matthew Kohn
