@@ -12,4 +12,7 @@ end
 use Rack::JSONBodyParser
 
 # Our application
+use DishController
+use AllergyController
+use IngredientController
 run ApplicationController
