@@ -14,13 +14,8 @@ ActiveRecord::Schema.define(version: 2022_05_12_165733) do
 
   create_table "allergies", force: :cascade do |t|
     t.string "name"
-    t.boolean "is_avoidable"
-    t.boolean "is_lethal"
-  end
-
-  create_table "dish_allergies", force: :cascade do |t|
-    t.integer "dish_id"
-    t.integer "allergy_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -29,6 +24,13 @@ ActiveRecord::Schema.define(version: 2022_05_12_165733) do
     t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.boolean "is_avoidable"
+    t.integer "dish_id"
+    t.integer "allergy_id"
   end
 
 end

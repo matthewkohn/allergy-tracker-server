@@ -1,5 +1,5 @@
 class Allergy < ActiveRecord::Base
-  has_many :dishes
-  has_many :dish_allergies, through: :dishes
+  has_many :ingredients
+  has_many :dishes, through: :ingredients
   
 end

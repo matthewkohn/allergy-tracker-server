@@ -1,4 +1,4 @@
-class DishAllergy < ActiveRecord::Base
+class Ingredient < ActiveRecord::Base
   belongs_to :dish
   belongs_to :allergy
   
