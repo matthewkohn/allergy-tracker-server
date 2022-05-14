@@ -8,7 +8,14 @@ class ApplicationController < Sinatra::Base
 
   get '/dishes' do
     dishes = Dish.all
-    dishes.to_json
+    # dishes.first.allergies.all.to_json
+    dishes.first.ingredients.to_json
+    # allergies = Allergy.all
+    # allergies.to_json
+    # ingredients = Ingredient.all
+    # ingredients.to_json
+    # dishAllergies = Dish.allergies.all
+    # dishAllergies.to_json
   end
 
 end
