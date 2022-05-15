@@ -8,14 +8,16 @@ class ApplicationController < Sinatra::Base
 
   get '/dishes' do
     dishes = Dish.all
-    # dishes.first.allergies.all.to_json
-    dishes.first.ingredients.to_json
-    # allergies = Allergy.all
-    # allergies.to_json
-    # ingredients = Ingredient.all
-    # ingredients.to_json
-    # dishAllergies = Dish.allergies.all
-    # dishAllergies.to_json
+    dishes.to_json
+  end
+
+  get '/dishes/:id' do
+    dish = Dish.find(params[:id])
+    dish.to_json(only: [:id, :name, :description, :price],  include: { 
+      ingredients: { only: [:name, :is_avoidable], include: {
+        allergy: { only: :name }
+      }}
+    })
   end
 
 end
