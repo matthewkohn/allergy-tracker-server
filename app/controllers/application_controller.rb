@@ -6,26 +6,13 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  get '/dishes' do
-    dishes = Dish.all
-    dishes.to_json
-  end
+  
 
-  get '/dishes/:id' do
-    dish = Dish.find(params[:id])
-    dish.to_json(only: [:id, :name, :description, :price],  include: { 
-      ingredients: { only: [:name, :is_avoidable], include: {
-        allergy: { only: :name }
-      }}
-    })
+  get '/allergies' do
+    allergies = Allergy.all
+    allergies.to_json(only: [:id, :name])
   end
 
   
-  
-  delete '/dishes/:id' do
-    dish = Dish.find(params[:id])
-    dish.destroy
-    dish.to_json
-  end
 
 end
