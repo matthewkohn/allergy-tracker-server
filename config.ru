@@ -12,5 +12,6 @@ end
 use Rack::JSONBodyParser
 
 # Our application
+use AllergiesController
 use DishesController
 run ApplicationController
