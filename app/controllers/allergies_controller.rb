@@ -6,4 +6,15 @@ class AllergiesController < ApplicationController
     allergies.to_json(only: [:id, :name])
   end
 
+  post '/allergies' do
+    allergy = Allergy.create(params)
+    allergy.to_json
+  end
+
+  delete '/allergies/:id' do
+    allergy = Allergy.find(params[:id])
+    allergy.destroy
+    allergy.to_json
+  end
+
 end
