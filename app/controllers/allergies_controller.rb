@@ -7,7 +7,8 @@ class AllergiesController < ApplicationController
   end
 
   post '/allergies' do
-    allergy = Allergy.create(params)
+    allergy = Allergy.create(name: params[:name])
+    
     allergy.to_json
   end
 

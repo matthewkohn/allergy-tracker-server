@@ -4,7 +4,7 @@ class DishesController < ApplicationController
     dishes.to_json(
       only: [:id, :name, :description, :price], 
       include: {
-        allergies: { only: :name },
+        allergies: { only: [:id, :name] },
         ingredients: { 
           only: [:dish_id, :allergy_id, :name, :is_avoidable]
         }
@@ -33,6 +33,15 @@ class DishesController < ApplicationController
       description: params[:description], 
       price: params[:price],
     )
+    dish.to_json
+  end
+
+  patch '/dishes/:id' do
+    dish = Dish.find(params[:id])
+    attrs_to_update = params.select do |key, value|
+      [ "name", "description", "price" ].include?(key)
+    end
+    dish.update(attrs_to_update)
     dish.to_json
   end
   
