@@ -1,7 +1,15 @@
 class DishesController < ApplicationController
   get '/dishes' do
     dishes = Dish.all
-    dishes.to_json
+    dishes.to_json(
+      only: [:id, :name, :description, :price], 
+      include: {
+        allergies: { only: :name },
+        ingredients: { 
+          only: [:dish_id, :allergy_id, :name, :is_avoidable]
+        }
+      }
+    )
   end
 
   get '/dishes/:id' do
@@ -9,29 +17,27 @@ class DishesController < ApplicationController
     dish.to_json(
       only: [:id, :name, :description, :price], 
       include: {
+        allergies: { only: :name },
         ingredients: { 
-          only: [:name, :is_avoidable], 
-          include: {
-            allergy: { 
-              only: :name 
-            }
-          }
+          only: [:dish_id, :allergy_id, :name, :is_avoidable]
         }
       }
     )
   end
 
   post '/dishes' do
+    # binding.pry
+
     dish = Dish.create(
       name: params[:name], 
       description: params[:description], 
-      price: params[:price]
+      price: params[:price],
     )
     dish.to_json
   end
   
 
-  
+
   delete '/dishes/:id' do
     dish = Dish.find(params[:id])
     dish.destroy
