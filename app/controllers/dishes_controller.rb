@@ -31,7 +31,7 @@ class DishesController < ApplicationController
     dish = Dish.create(
       name: params[:name], 
       description: params[:description], 
-      price: params[:price],
+      price: params[:price]
     )
     dish.to_json
 
