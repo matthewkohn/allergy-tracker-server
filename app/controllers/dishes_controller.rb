@@ -34,6 +34,8 @@ class DishesController < ApplicationController
       price: params[:price],
     )
     dish.to_json
+
+    # redirect "/dishes/${dish.id}"
   end
 
   patch '/dishes/:id' do
