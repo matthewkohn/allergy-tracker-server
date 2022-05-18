@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_12_165733) do
+ActiveRecord::Schema.define(version: 2022_05_18_204700) do
 
   create_table "allergies", force: :cascade do |t|
     t.string "name"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_165733) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.boolean "is_avoidable"
     t.integer "dish_id"
     t.integer "allergy_id"
   end

@@ -31,8 +31,10 @@ class DishesController < ApplicationController
     dish = Dish.create(
       name: params[:name], 
       description: params[:description], 
-      price: params[:price]
+      price: params[:price],
+      allergy_ids: params[:allergy_ids]
     )
+    binding.pry
     dish.to_json
 
     # redirect "/dishes/${dish.id}"

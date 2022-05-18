@@ -14,7 +14,7 @@ nut = Allergy.create(name: "nut")
 allium = Allergy.create(name: "allium")
 shellfish = Allergy.create(name: "shellfish")
 
-Ingredient.create(name: "Cheese and cream", is_avoidable: false, dish: pork, allergy: dairy)
+Ingredient.create(name: "cheese", is_avoidable: false, dish: pork, allergy: dairy)
 Ingredient.create(name: "Puffed farro", is_avoidable: true, dish: pork, allergy: gluten)
 Ingredient.create(name: "Spring onions", is_avoidable: false, dish: chicken, allergy: allium)
 Ingredient.create(name: "Buttermilk", is_avoidable: true, dish: wedge, allergy: dairy)
