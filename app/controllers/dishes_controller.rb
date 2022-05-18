@@ -6,7 +6,7 @@ class DishesController < ApplicationController
       include: {
         allergies: { only: [:id, :name] },
         ingredients: { 
-          only: [:dish_id, :allergy_id, :name, :is_avoidable]
+          only: [:id, :dish_id, :allergy_id, :name, :is_avoidable]
         }
       }
     )
@@ -46,8 +46,6 @@ class DishesController < ApplicationController
     dish.update(attrs_to_update)
     dish.to_json
   end
-  
-
 
   delete '/dishes/:id' do
     dish = Dish.find(params[:id])
