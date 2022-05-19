@@ -12,18 +12,18 @@ class DishesController < ApplicationController
     )
   end
 
-  get '/dishes/:id' do
-    dish = Dish.find(params[:id])
-    dish.to_json(
-      only: [:id, :name, :description, :price], 
-      include: {
-        allergies: { only: :name },
-        ingredients: { 
-          only: [:dish_id, :allergy_id, :name, :is_avoidable]
-        }
-      }
-    )
-  end
+  # get '/dishes/:id' do
+  #   dish = Dish.find(params[:id])
+  #   dish.to_json(
+  #     only: [:id, :name, :description, :price], 
+  #     include: {
+  #       allergies: { only: :name },
+  #       ingredients: { 
+  #         only: [:dish_id, :allergy_id, :name, :is_avoidable]
+  #       }
+  #     }
+  #   )
+  # end
 
   post '/dishes' do
     # binding.pry
@@ -36,8 +36,6 @@ class DishesController < ApplicationController
     )
     binding.pry
     dish.to_json
-
-    # redirect "/dishes/${dish.id}"
   end
 
   patch '/dishes/:id' do

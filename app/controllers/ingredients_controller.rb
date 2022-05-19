@@ -13,7 +13,6 @@ class IngredientsController < ApplicationController
   post '/ingredients' do
     ingredient = Ingredient.create(
       name: params[:name], 
-      is_avoidable: params[:is_avoidable], 
       dish_id: params[:dish_id],
       allergy_id: params[:allergy_id]
     )
