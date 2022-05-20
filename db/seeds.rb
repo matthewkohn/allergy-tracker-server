@@ -16,15 +16,24 @@ shellfish = Allergy.create(name: "shellfish")
 
 Ingredient.create(name: "farro", dish: pork, allergy: gluten)
 Ingredient.create(name: "bread", dish: burger, allergy: gluten)
+Ingredient.create(name: "fryer", allergy: gluten)
+
 Ingredient.create(name: "cheese", dish: pork, allergy: dairy)
 Ingredient.create(name: "cheese", dish: burger, allergy: dairy)
 Ingredient.create(name: "cream", dish: key_lime_pie, allergy: dairy)
 Ingredient.create(name: "buttermilk", dish: wedge, allergy: dairy)
-Ingredient.create(name: "spring onions", dish: chicken, allergy: allium)
+
+Ingredient.create(name: "onions", dish: chicken, allergy: allium)
+Ingredient.create(name: "garlic", allergy: allium)
+Ingredient.create(name: "leeks", allergy: allium)
+
 Ingredient.create(name: "scallops", dish: scallop_salad, allergy: shellfish)
 Ingredient.create(name: "shrimp", dish: moqueqa, allergy: shellfish)
+Ingredient.create(name: "clams", allergy: shellfish)
+
 Ingredient.create(name: "walnuts", dish: key_lime_pie, allergy: nut)
 Ingredient.create(name: "peanuts", dish: moqueqa, allergy: nut)
+Ingredient.create(name: "almonds", allergy: nut)
 
 
 puts "✅ Done seeding!"
