@@ -21,15 +21,16 @@ class DishesController < ApplicationController
       price: params[:price],
       allergy_ids: params[:allergy_ids]
     )
-    binding.pry
+    # binding.pry
     dish.to_json
   end
 
   patch '/dishes/:id' do
     dish = Dish.find(params[:id])
     attrs_to_update = params.select do |key, value|
-      [ "name", "description", "price" ].include?(key)
+      [ "name", "description", "price", "allergy_ids" ].include?(key)
     end
+    # binding.pry
     dish.update(attrs_to_update)
     dish.to_json
   end

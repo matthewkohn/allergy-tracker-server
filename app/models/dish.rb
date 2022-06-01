@@ -5,10 +5,15 @@ class Dish < ActiveRecord::Base
 
   def allergy_ids=(params)
     # binding.pry
+    self.ingredients.destroy_all
+
     params.each do |hash|
-      # allergy = Allergy.find_by(id: hash[:allergy_id])
-      self.ingredients.new(name: hash[:ingredient_name],
-      allergy_id: hash[:allergy_id])
+      # binding.pry
+        
+      self.ingredients.new(
+        name: hash[:ingredient_name],
+        allergy_id: hash[:allergy_id]
+      )
 
     end
   end
