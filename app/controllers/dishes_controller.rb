@@ -13,15 +13,12 @@ class DishesController < ApplicationController
   end
 
   post '/dishes' do
-    # binding.pry
-
     dish = Dish.create(
       name: params[:name], 
       description: params[:description], 
       price: params[:price],
       allergy_ids: params[:allergy_ids]
     )
-    # binding.pry
     dish.to_json
   end
 
@@ -30,7 +27,6 @@ class DishesController < ApplicationController
     attrs_to_update = params.select do |key, value|
       [ "name", "description", "price", "allergy_ids" ].include?(key)
     end
-    # binding.pry
     dish.update(attrs_to_update)
     dish.to_json
   end
