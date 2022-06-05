@@ -14,6 +14,11 @@ rake server
 ```
 If you haven't already, follow directions for the [Frontend]('https://github.com/matthewkohn/phase-3-allergy_tracker_client').
 
+## Description
+"Cliff's Notes for Restaurant Pros" is a full stack CRUD application. This repo is the backend for that project, using Ruby's Active Record to interact with the database, and Sinatra for setting up API routes.
+
+The Dish and Allergy models have a many-to-many relationship, and the Ingredient model is the join table belonging to both.
+
 ## Licensing (MIT)
 Copyright 2022 Matthew Kohn
 
