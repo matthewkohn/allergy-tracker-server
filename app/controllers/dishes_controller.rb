@@ -2,39 +2,62 @@ class DishesController < ApplicationController
   get '/dishes' do
     dishes = Dish.all
     dishes.to_json(
-      only: [:id, :name, :description, :price], 
       include: {
         allergies: { only: [:id, :name] },
-        ingredients: { 
-          only: [:id, :dish_id, :allergy_id, :name, :is_avoidable]
-        }
-      }
+        ingredients: {}
+      },
+      except: [:created_at, :updated_at]
     )
   end
 
   post '/dishes' do
-    dish = Dish.create(
+    @dish = Dish.new(
       name: params[:name], 
       description: params[:description], 
       price: params[:price],
       allergy_ids: params[:allergy_ids]
     )
-    dish.to_json
+    if @dish.save
+      dish_to_json
+    else
+      dish_error_messages
+    end
   end
 
   patch '/dishes/:id' do
-    dish = Dish.find(params[:id])
+    find_dish
     attrs_to_update = params.select do |key, value|
       [ "name", "description", "price", "allergy_ids" ].include?(key)
     end
-    dish.update(attrs_to_update)
-    dish.to_json
+    if @dish.update(attrs_to_update)
+      dish_to_json
+    else
+      dish_error_messages
+    end
   end
 
   delete '/dishes/:id' do
-    dish = Dish.find(params[:id])
-    dish.destroy
-    dish.to_json
+    find_dish
+    if @dish
+      @dish.destroy
+      dish_to_json
+    else
+      { errors: ["Dish Doesn't Exist"] }.to_json
+    end
   end
 
+end
+
+private
+
+def dish_to_json
+  @dish.to_json
+end
+
+def find_dish
+  @dish = Dish.find(params[:id])
+end
+
+def dish_error_messages
+  { errors: @dish.errors.full_messages }.to_json
 end
