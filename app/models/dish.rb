@@ -2,10 +2,8 @@ class Dish < ActiveRecord::Base
   has_many :ingredients, dependent: :destroy
   has_many :allergies, through: :ingredients
   
-
   def allergy_ids=(params)
     self.ingredients.destroy_all
-
     params.each do |hash|       
       self.ingredients.new(
         name: hash[:ingredient_name],
@@ -13,4 +11,5 @@ class Dish < ActiveRecord::Base
       )
     end
   end
+
 end

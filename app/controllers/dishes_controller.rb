@@ -50,14 +50,14 @@ end
 
 private
 
-def dish_to_json
-  @dish.to_json
-end
+  def find_dish
+    @dish = Dish.find(params[:id])
+  end
 
-def find_dish
-  @dish = Dish.find(params[:id])
-end
+  def dish_to_json
+    @dish.to_json
+  end
 
-def dish_error_messages
-  { errors: @dish.errors.full_messages }.to_json
-end
+  def dish_error_messages
+    { errors: @dish.errors.full_messages }.to_json
+  end
