@@ -20,10 +20,7 @@ class DishesController < ApplicationController
 
   patch '/dishes/:id' do
     find_dish
-    attrs_to_update = params.select do |key, value|
-      [ "name", "description", "price", "allergy_ids" ].include?(key)
-    end
-    if @dish.update(attrs_to_update)
+    if @dish.update(params)
       dish_to_json
     else
       dish_error_messages
