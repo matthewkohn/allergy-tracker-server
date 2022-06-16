@@ -4,7 +4,7 @@ pork = Dish.create(name: "Pork Shank", description: "Corned pork shank with gruy
 chicken = Dish.create(name: "Rotisserie Chicken", description: "Wood fired rotisserie chicken with piri piri sauce, fingerling potatoes, and spring onions", price: 26.99)
 wedge = Dish.create(name: "Wedge Salad", description: "Iceberg lettuce with tarragon ranch dressing, crumbled blue cheese, avocado, and pickled shallots", price: 10.99)
 burger = Dish.create(name: "Cheeseburger", description: "House ground, wood grilled burger with aged colby cheese, applewood smoked bacon, and toasted sesame brioche", price: 15.99)
-scallop_salad = Dish.create(name: "Roasted squash & scallop salad", description: "Roasted squash and zucchini with seared scallops, crispy asparagus, arugula, and green goddess dressing", price: 9.99)
+scallop_salad = Dish.create(name: "Roasted squash & scallop salad", description: "Roasted squash and zucchini with seared scallops and green goddess dressing", price: 9.99)
 moqueqa = Dish.create(name: "Seafood Moqueqa", description: "Brazilian style shrimp and lobster dish", price: 41.50)
 key_lime_pie = Dish.create(name: "Key Lime Pie", description: "Key lime pie with whipped cream and walnut crust", price: 5.25)
 

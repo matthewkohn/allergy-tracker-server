@@ -1,13 +1,7 @@
 class DishesController < ApplicationController
   get '/dishes' do
     dishes = Dish.all
-    dishes.to_json(
-      include: {
-        allergies: { only: [:id, :name] },
-        ingredients: {}
-      },
-      except: [:created_at, :updated_at]
-    )
+    serialize(dishes)
   end
 
   post '/dishes' do
@@ -48,7 +42,18 @@ class DishesController < ApplicationController
 
 end
 
+
 private
+
+  def serialize(objects)
+    objects.to_json(
+      include: {
+        allergies: { only: [:id, :name] },
+        ingredients: {}
+      },
+      except: [:created_at, :updated_at]
+    )
+  end
 
   def find_dish
     @dish = Dish.find(params[:id])
