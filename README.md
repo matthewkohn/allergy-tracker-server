@@ -12,7 +12,7 @@ bundle install
 rake db:migrate db:seed
 rake server
 ```
-If you haven't already, follow directions for the [Frontend](https://github.com/matthewkohn/phase-3-allergy_tracker_client).
+If you haven't already, follow directions for the [Frontend](https://github.com/matthewkohn/allergy-tracker-client).
 
 ## Description
 "Allergy Tracker" is a full stack CRUD application. This repo is the backend for that project, using Ruby's Active Record to interact with the database, and Sinatra for setting up API routes.
