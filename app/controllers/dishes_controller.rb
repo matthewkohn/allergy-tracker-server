@@ -9,7 +9,7 @@ class DishesController < ApplicationController
       name: params[:name], 
       description: params[:description], 
       price: params[:price],
-      allergy_ids: params[:allergy_ids]
+      allergy_data: params[:allergy_data]
     )
     if @dish.save
       dish_to_json
