@@ -1,21 +1,24 @@
 # Allergy Tracker Server
 This is the backend for an allergy tracker app for Flatiron School to showcase skills in Ruby and Active Record.
 
+If you haven't already, follow directions for the [Frontend](https://github.com/matthewkohn/allergy-tracker-client).
+
 ## Requirements
 ruby v2.7.4
 SQLite v3.31.1
 
 ## How to use
+Allergy Tracker server is configured to run locally at http://localhost:9292.
+
 Fork and clone this repo, then run the following to install dependencies and start the server locally:
 ```
 bundle install
 rake db:migrate db:seed
 rake server
 ```
-If you haven't already, follow directions for the [Frontend](https://github.com/matthewkohn/allergy-tracker-client).
 
 ## Description
-"Allergy Tracker" is a full stack CRUD application. This repo is the backend for that project, using Ruby's Active Record to interact with the database, and Sinatra for setting up API routes.
+"Allergy Tracker" is a full stack CRUD application using Ruby's Active Record to interact with the database, and Sinatra for setting up API routes.
 
 The Dish and Allergy models have a many-to-many relationship, and the Ingredient model is the join table belonging to both.
 
