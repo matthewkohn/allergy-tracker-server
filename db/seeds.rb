@@ -1,5 +1,6 @@
 puts "🌱 Seeding spices..."
 
+# dishes
 pork = Dish.create(name: "Pork Shank", description: "Corned pork shank with gruyere whipped potatoes, apple cabbage slaw, and puffed farro", price: 32.99)
 chicken = Dish.create(name: "Rotisserie Chicken", description: "Wood fired rotisserie chicken with piri piri sauce, fingerling potatoes, and spring onions", price: 26.99)
 wedge = Dish.create(name: "Wedge Salad", description: "Iceberg lettuce with tarragon ranch dressing, crumbled blue cheese, avocado, and pickled shallots", price: 10.99)
@@ -8,44 +9,43 @@ scallop_salad = Dish.create(name: "Roasted squash & scallop salad", description:
 moqueqa = Dish.create(name: "Seafood Moqueqa", description: "Brazilian style shrimp and lobster dish", price: 41.59)
 key_lime_pie = Dish.create(name: "Key Lime Pie", description: "Key lime pie with whipped cream and walnut crust", price: 5.25)
 
+# allergies
 gluten = Allergy.create(name: "gluten")
 dairy = Allergy.create(name: "dairy")
 nut = Allergy.create(name: "nut")
 allium = Allergy.create(name: "allium")
 shellfish = Allergy.create(name: "shellfish")
 
-# base ingredients
-Ingredient.create([
-  { name: "farro", allergy: gluten },
-  { name: "bread", allergy: gluten },
-  { name: "fryer", allergy: gluten },
-  { name: "cheese", allergy: dairy },
-  { name: "cream", allergy: dairy },
-  { name: "buttermilk", allergy: dairy },
-  { name: "onions", allergy: allium },
-  { name: "garlic", allergy: allium },
-  { name: "leeks", allergy: allium },
-  { name: "scallops", allergy: shellfish },
-  { name: "shrimp", allergy: shellfish },
-  { name: "clams", allergy: shellfish },
-  { name: "walnuts", allergy: nut },
-  { name: "peanuts", allergy: nut },
-  { name: "almonds", allergy: nut }
-])
+# ingredients
+farro = Ingredient.create(name: "farro", allergy: gluten)
+bread = Ingredient.create(name: "bread", allergy: gluten)
+fryer = Ingredient.create(name: "fryer", allergy: gluten)
+cheese = Ingredient.create(name: "cheese", allergy: dairy)
+cream = Ingredient.create(name: "cream", allergy: dairy)
+buttermilk = Ingredient.create(name: "buttermilk", allergy: dairy)
+onions = Ingredient.create(name: "onions", allergy: allium)
+garlic = Ingredient.create(name: "garlic", allergy: allium)
+leeks = Ingredient.create(name: "leeks", allergy: allium)
+scallops = Ingredient.create(name: "scallops", allergy: shellfish)
+shrimp = Ingredient.create(name: "shrimp", allergy: shellfish)
+clams = Ingredient.create(name: "clams", allergy: shellfish)
+walnuts = Ingredient.create(name: "walnuts", allergy: nut)
+peanuts = Ingredient.create(name: "peanuts", allergy: nut)
+almonds = Ingredient.create(name: "almonds", allergy: nut)
 
-# dish instances of ingredients
-Ingredient.create([
-  { name: "farro", dish: pork, allergy: gluten },
-  { name: "bread", dish: burger, allergy: gluten },
-  { name: "cheese", dish: pork, allergy: dairy },
-  { name: "cheese", dish: burger, allergy: dairy },
-  { name: "cream", dish: key_lime_pie, allergy: dairy },
-  { name: "buttermilk", dish: wedge, allergy: dairy },
-  { name: "onions", dish: chicken, allergy: allium },
-  { name: "scallops", dish: scallop_salad, allergy: shellfish },
-  { name: "shrimp", dish: moqueqa, allergy: shellfish },
-  { name: "walnuts", dish: key_lime_pie, allergy: nut },
-  { name: "peanuts", dish: moqueqa, allergy: nut }
+# dish_allergy
+DishAllergy.create([
+  { ingredient_name: "farro", dish: pork, allergy: gluten, is_omittable: true },
+  { ingredient_name: "bread", dish: burger, allergy: gluten, is_omittable: true },
+  { ingredient_name: "cheese", dish: pork, allergy: dairy, is_omittable: false },
+  { ingredient_name: "cheese", dish: burger, allergy: dairy, is_omittable: true },
+  { ingredient_name: "cream", dish: key_lime_pie, allergy: dairy, is_omittable: false },
+  { ingredient_name: "buttermilk", dish: wedge, allergy: dairy, is_omittable: false },
+  { ingredient_name: "onions", dish: chicken, allergy: allium, is_omittable: false },
+  { ingredient_name: "scallops", dish: scallop_salad, allergy: shellfish, is_omittable: false },
+  { ingredient_name: "shrimp", dish: moqueqa, allergy: shellfish, is_omittable: false },
+  { ingredient_name: "walnuts", dish: key_lime_pie, allergy: nut, is_omittable: false },
+  { ingredient_name: "peanuts", dish: moqueqa, allergy: nut, is_omittable: false }
 ])
 
 puts "✅ Done seeding!"
