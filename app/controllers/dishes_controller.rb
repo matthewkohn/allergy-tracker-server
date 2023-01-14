@@ -42,14 +42,12 @@ end
 
 private
 
-# update serialize to include dish_allergies
   def serialize(objects)
     objects.to_json(
       include: [
         dish_allergies: { 
           only: [:id, :ingredient_name, :is_omittable],
           include: { allergy: { only: :name } }
-        
         }
       ]
     )

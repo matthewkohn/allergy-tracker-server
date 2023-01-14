@@ -6,7 +6,7 @@ class AllergiesController < ApplicationController
     allergies = Allergy.all
     allergies.to_json(
       only: [:id, :name], 
-      include: :ingredients 
+      include: { ingredients: { only: [:id, :name] } }  
     )
   end
 
@@ -14,5 +14,5 @@ class AllergiesController < ApplicationController
     allergy = Allergy.create(name: params[:name])
     allergy.to_json
   end
-
+  
 end
