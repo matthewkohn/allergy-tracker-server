@@ -1,11 +1,11 @@
 # Allergy Tracker Server
-This is the backend for an allergy tracker app for Flatiron School to showcase skills in Ruby and Active Record.
+This is the backend for the [Allergy Tracker](https://github.com/matthewkohn/allergy-tracker-client) app, built with Ruby on Rails, ActiveRecord, Sinatra, and SQLite3.
 
-If you haven't already, follow directions for the [Frontend](https://github.com/matthewkohn/allergy-tracker-client).
+If you haven't already, follow directions to install and run the [Frontend](https://github.com/matthewkohn/allergy-tracker-client) locally.
 
 ## Requirements
-ruby v2.7.4
-SQLite v3.31.1
+* ruby v2.7.4
+* SQLite v3.31.1
 
 ## How to use
 Allergy Tracker server is configured to run locally at http://localhost:9292.
