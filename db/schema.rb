@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_204700) do
+ActiveRecord::Schema.define(version: 2023_01_14_193850) do
 
   create_table "allergies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dish_allergies", force: :cascade do |t|
+    t.string "ingredient_name"
+    t.boolean "is_omittable"
+    t.integer "dish_id"
+    t.integer "allergy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -28,8 +37,9 @@ ActiveRecord::Schema.define(version: 2022_05_18_204700) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.integer "dish_id"
     t.integer "allergy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
