@@ -6,7 +6,7 @@ class AllergiesController < ApplicationController
     allergies = Allergy.all
     allergies.to_json(
       only: [:id, :name], 
-      include: { ingredients: { only: [:name] } }
+      include: :ingredients 
     )
   end
 
